@@ -16,10 +16,17 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/pointfreeco/swift-composable-architecture", .upToNextMajor(from: "0.47.2")),
+        .package(
+            url: "https://github.com/pointfreeco/swift-composable-architecture",
+            from: "0.49.2"
+        ),
         .package(
             url: "https://github.com/pointfreeco/swift-identified-collections",
             from: "0.5.0"
+        ),
+        .package(
+            url: "https://github.com/pointfreeco/swiftui-navigation",
+            from: "0.4.5"
         ),
     ],
     targets: [
@@ -33,6 +40,10 @@ let package = Package(
                 .product(
                     name: "IdentifiedCollections",
                     package: "swift-identified-collections"
+                ),
+                .product(
+                    name: "SwiftUINavigation",
+                    package: "swiftui-navigation"
                 ),
             ]
         ),
