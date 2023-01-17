@@ -50,25 +50,25 @@ public extension View {
     ///     dismissed.
     ///   - onDismiss: The closure to execute when dismissing the sheet.
     ///   - content: A closure returning the content of the sheet.
-    @MainActor  func sheet<State, Action, Content>(
+    @MainActor func sheet<State, Action, Content>(
         unwrapping store: Store<State?, Action>,
         onDismiss: (() -> Void)? = nil,
         @ViewBuilder content: @escaping (Store<State, Action>) -> Content
     ) -> some View
         where Content: View, State: Equatable {
-        IfLetStore(store) {
-            WithViewStore($0) { viewStore in
-                self.sheet(
-                    isPresented: viewStore.isPresent(),
-                    onDismiss: onDismiss
-                ) {
-                    content($0)
+        WithViewStore(store) { viewStore in
+            self.sheet(
+                isPresented: viewStore.isPresent(),
+                onDismiss: onDismiss
+            ) {
+                IfLetStore(store) { unwrapped in
+                    content(unwrapped)
                 }
             }
         }
     }
 
-    @MainActor  func sheet<State, Action, CaseState, CaseAction, Content>(
+    @MainActor func sheet<State, Action, CaseState, CaseAction, Content>(
         unwrapping store: Store<State?, Action>,
         case stateCase: CasePath<State, CaseState>,
         action actionCase: CasePath<Action, CaseAction>,
