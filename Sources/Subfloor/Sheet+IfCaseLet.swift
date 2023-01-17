@@ -57,7 +57,14 @@ public extension View {
     ) -> some View
         where Content: View, State: Equatable {
         IfLetStore(store) {
-            content($0)
+            WithViewStore($0) { viewStore in
+                self.sheet(
+                    isPresented: viewStore.isPresent(),
+                    onDismiss: onDismiss
+                ) {
+                    content($0)
+                }
+            }
         }
     }
 
