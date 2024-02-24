@@ -3,7 +3,8 @@ import Foundation
 
 /// Composable Feature for managing the mutations of an `IdentifiedArray.State`.
 /// Note: Requires that `IdentifiedArray.Element` conform to `Equatable`.
-struct IdentifiedArrayReducer<Element>: ReducerProtocol where
+@Reducer
+struct IdentifiedArrayFeature<Element> where
     Element: Equatable,
     Element: Identifiable
 {
@@ -21,7 +22,7 @@ struct IdentifiedArrayReducer<Element>: ReducerProtocol where
 
     /// A `Reducer` implementation providing list-editing behavior for
     /// an `IdentifiedArray.State`
-    public var body: some ReducerProtocol<State, Action> {
+  public var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
             case let .append(element):
