@@ -25,7 +25,7 @@ let package = Package(
             from: "1.0.0"
         ),
         .package(
-            url: "https://github.com/pointfreeco/swiftui-navigation",
+            url: "https://github.com/pointfreeco/swift-navigation",
             from: "1.0.0"
         ),
     ],
@@ -43,7 +43,7 @@ let package = Package(
                 ),
                 .product(
                     name: "SwiftUINavigation",
-                    package: "swiftui-navigation"
+                    package: "swift-navigation"
                 ),
             ]
         ),

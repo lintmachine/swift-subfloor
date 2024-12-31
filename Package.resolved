@@ -82,6 +82,15 @@
       }
     },
     {
+      "identity" : "swift-navigation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/swift-navigation",
+      "state" : {
+        "revision" : "b7c9a79f6f6b1fefb87d3e5a83a9c2fe7cdc9720",
+        "version" : "1.5.0"
+      }
+    },
+    {
       "identity" : "swift-perception",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pointfreeco/swift-perception",
